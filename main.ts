@@ -1,0 +1,30 @@
+input.onButtonPressed(Button.A, function () {
+    pins.digitalWritePin(DigitalPin.P6, 1)
+    pins.digitalWritePin(DigitalPin.P7, 1)
+    pins.digitalWritePin(DigitalPin.P9, 1)
+})
+input.onButtonPressed(Button.AB, function () {
+    pins.digitalWritePin(DigitalPin.P6, 0)
+    pins.digitalWritePin(DigitalPin.P7, 0)
+    pins.digitalWritePin(DigitalPin.P9, 0)
+    for (let index = 0; index < 5; index++) {
+        pins.digitalWritePin(DigitalPin.P9, 1)
+        basic.pause(1000)
+        pins.digitalWritePin(DigitalPin.P7, 1)
+        basic.pause(1000)
+        pins.digitalWritePin(DigitalPin.P6, 1)
+        pins.digitalWritePin(DigitalPin.P7, 0)
+        pins.digitalWritePin(DigitalPin.P9, 0)
+        basic.pause(1000)
+        pins.digitalWritePin(DigitalPin.P6, 0)
+        pins.digitalWritePin(DigitalPin.P7, 1)
+        basic.pause(1000)
+        pins.digitalWritePin(DigitalPin.P7, 0)
+    }
+})
+input.onButtonPressed(Button.B, function () {
+    pins.digitalWritePin(DigitalPin.P6, 0)
+    pins.digitalWritePin(DigitalPin.P7, 0)
+    pins.digitalWritePin(DigitalPin.P9, 0)
+})
+led.enable(false)
